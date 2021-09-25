@@ -14,8 +14,7 @@ NC='\033[0m' # No Color
 
 #continue if adb is installed and download if it's not
 if ! command -v adb &> /dev/null ;then
-    if test -f "./platform-tools/adb" && test -f "./platform-tools/fastboot"
-    then 
+    if test -f "./platform-tools/adb" && test -f "./platform-tools/fastboot" ;then 
         echo -e "${GREEN}Downloaded adb found${NC}"
         export adb='./platform-tools/adb'
         export fastboot='./platform-tools/fastboot'
@@ -40,5 +39,5 @@ if ! command -v adb &> /dev/null ;then
 fi
 
 adb devices
-adb root &> /dev/null
-adb shell &> /dev/null
+adb root
+adb shell
